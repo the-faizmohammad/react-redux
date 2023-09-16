@@ -1,13 +1,29 @@
-// src/index.js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import store from './redux/store';
-import App from './App';
+import React, { useState } from 'react';
+import './App.css';
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
+function App() {
+  const [count, setCount] = useState(0);
+
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
+
+  const handleDecrement = () => {
+    setCount(count - 1);
+  };
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>React Counter App</h1>
+        <p>Count: {count}</p>
+        <div>
+          <button onClick={handleIncrement}>Increment</button>
+          <button onClick={handleDecrement}>Decrement</button>
+        </div>
+      </header>
+    </div>
+  );
+}
+
+export default App;
